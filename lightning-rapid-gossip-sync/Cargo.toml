@@ -14,6 +14,7 @@ default = ["std"]
 std = []
 
 [dependencies]
+lightning-common = { path = "../lightning-common" }
 lightning = { version = "0.0.124", path = "../lightning", default-features = false }
 bitcoin = { version = "0.32.2", default-features = false }
 
