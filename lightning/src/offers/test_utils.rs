@@ -109,7 +109,7 @@ pub(crate) fn payment_hash() -> PaymentHash {
 
 pub(crate) fn now() -> Duration {
 	lightning_common::SystemTime::now()
-		.duration_since(std::time::SystemTime::UNIX_EPOCH)
+		.duration_since(lightning_common::SystemTime::UNIX_EPOCH)
 		.expect("SystemTime::now() should come after SystemTime::UNIX_EPOCH")
 }
 

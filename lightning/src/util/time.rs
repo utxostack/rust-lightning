@@ -8,7 +8,7 @@
 //! tests.
 
 #[cfg(not(test))]
-pub use std::time::Instant;
+pub use lightning_common::Instant;
 #[cfg(test)]
 pub use test::Instant;
 

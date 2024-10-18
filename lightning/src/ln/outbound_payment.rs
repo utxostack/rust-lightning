@@ -29,8 +29,10 @@ use crate::sign::{EntropySource, NodeSigner, Recipient};
 use crate::util::errors::APIError;
 use crate::util::logger::Logger;
 use crate::util::ser::ReadableArgs;
-#[cfg(feature = "std")]
+#[cfg(test)]
 use crate::util::time::Instant;
+#[cfg(not(test))]
+use lightning_common::Instant;
 
 use core::fmt::{self, Display, Formatter};
 use core::ops::Deref;

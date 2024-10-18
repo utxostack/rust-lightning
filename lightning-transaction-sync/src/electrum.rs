@@ -16,7 +16,7 @@ use bitcoin::{BlockHash, Script, Transaction, Txid};
 use std::collections::HashSet;
 use std::ops::Deref;
 use std::sync::Mutex;
-use std::time::Instant;
+use lightning_common::Instant;
 
 /// Synchronizes LDK with a given Electrum server.
 ///

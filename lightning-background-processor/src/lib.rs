@@ -53,7 +53,7 @@ use std::sync::Arc;
 #[cfg(feature = "std")]
 use std::thread::{self, JoinHandle};
 #[cfg(feature = "std")]
-use std::time::Instant;
+use lightning_common::Instant;
 
 #[cfg(not(feature = "std"))]
 use alloc::boxed::Box;
