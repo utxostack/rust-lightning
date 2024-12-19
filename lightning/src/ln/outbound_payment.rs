@@ -723,7 +723,7 @@ impl OutboundPayments {
 		node_signer: &NS, best_block_height: u32, logger: &L,
 		pending_events: &Mutex<VecDeque<(events::Event, Option<EventCompletionAction>)>>,
 		send_payment_along_path: SP,
-	) -> Result<(), RetryableSendFailure>
+	) -> Result<Route, RetryableSendFailure>
 	where
 		R::Target: Router,
 		ES::Target: EntropySource,
@@ -826,7 +826,7 @@ impl OutboundPayments {
 			pending_events,
 			send_payment_along_path,
 		)
-		.map(|()| payment_hash)
+		.map(|_| payment_hash)
 	}
 
 	pub(super) fn send_spontaneous_payment_with_route<ES: Deref, NS: Deref, F>(
@@ -1240,7 +1240,7 @@ impl OutboundPayments {
 		best_block_height: u32, logger: &L,
 		pending_events: &Mutex<VecDeque<(events::Event, Option<EventCompletionAction>)>>,
 		send_payment_along_path: SP,
-	) -> Result<(), RetryableSendFailure>
+	) -> Result<Route, RetryableSendFailure>
 	where
 		R::Target: Router,
 		ES::Target: EntropySource,
@@ -1309,7 +1309,7 @@ impl OutboundPayments {
 				e,
 				payment_id,
 				payment_hash,
-				route,
+				route.clone(),
 				route_params,
 				router,
 				first_hops,
@@ -1322,7 +1322,7 @@ impl OutboundPayments {
 				&send_payment_along_path,
 			);
 		}
-		Ok(())
+		Ok(route)
 	}
 
 	fn find_route_and_send_payment<R: Deref, NS: Deref, ES: Deref, IH, SP, L: Deref>(

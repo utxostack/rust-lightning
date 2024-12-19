@@ -4685,7 +4685,7 @@ where
 	pub fn send_payment(
 		&self, payment_hash: PaymentHash, recipient_onion: RecipientOnionFields,
 		payment_id: PaymentId, route_params: RouteParameters, retry_strategy: Retry,
-	) -> Result<(), RetryableSendFailure> {
+	) -> Result<Route, RetryableSendFailure> {
 		let best_block_height = self.best_block.read().unwrap().height;
 		let _persistence_guard = PersistenceNotifierGuard::notify_on_drop(self);
 		self.pending_outbound_payments.send_payment(
