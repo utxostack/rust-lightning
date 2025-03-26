@@ -22,6 +22,7 @@ default = ["std"]
 
 [dependencies]
 bitcoin = { version = "0.32.2", default-features = false }
+lightning-common = { path = "../lightning-common" }
 lightning = { version = "0.0.125", path = "../lightning", default-features = false }
 lightning-rapid-gossip-sync = { version = "0.0.125", path = "../lightning-rapid-gossip-sync", default-features = false }
 

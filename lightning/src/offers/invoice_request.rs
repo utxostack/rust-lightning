@@ -709,8 +709,8 @@ macro_rules! invoice_request_respond_with_explicit_signing_pubkey_methods { (
 	pub fn respond_with(
 		&$self, payment_paths: Vec<BlindedPaymentPath>, payment_hash: PaymentHash
 	) -> Result<$builder, Bolt12SemanticError> {
-		let created_at = std::time::SystemTime::now()
-			.duration_since(std::time::SystemTime::UNIX_EPOCH)
+		let created_at = lightning_common::SystemTime::now()
+			.duration_since(lightning_common::SystemTime::UNIX_EPOCH)
 			.expect("SystemTime::now() should come after SystemTime::UNIX_EPOCH");
 
 		$contents.respond_with_no_std(payment_paths, payment_hash, created_at)
@@ -882,8 +882,8 @@ macro_rules! invoice_request_respond_with_derived_signing_pubkey_methods { (
 	pub fn respond_using_derived_keys(
 		&$self, payment_paths: Vec<BlindedPaymentPath>, payment_hash: PaymentHash
 	) -> Result<$builder, Bolt12SemanticError> {
-		let created_at = std::time::SystemTime::now()
-			.duration_since(std::time::SystemTime::UNIX_EPOCH)
+		let created_at = lightning_common::SystemTime::now()
+			.duration_since(lightning_common::SystemTime::UNIX_EPOCH)
 			.expect("SystemTime::now() should come after SystemTime::UNIX_EPOCH");
 
 		$self.respond_using_derived_keys_no_std(payment_paths, payment_hash, created_at)

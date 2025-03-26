@@ -23,6 +23,7 @@ electrum = ["electrum-client"]
 async-interface = []
 
 [dependencies]
+lightning-common = { path = "../lightning-common" }
 lightning = { version = "0.0.125", path = "../lightning", default-features = false, features = ["std"] }
 bitcoin = { version = "0.32.2", default-features = false }
 bdk-macros = "0.6"

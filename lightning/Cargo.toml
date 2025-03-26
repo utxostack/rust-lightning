@@ -38,6 +38,7 @@ grind_signatures = []
 default = ["std", "grind_signatures"]
 
 [dependencies]
+lightning-common = { path = "../lightning-common" }
 lightning-types = { version = "0.1.0", path = "../lightning-types", default-features = false }
 lightning-invoice = { version = "0.32.0", path = "../lightning-invoice", default-features = false }
 

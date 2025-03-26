@@ -2912,7 +2912,7 @@ mod tests {
 		// Until we have std::thread::scoped we have to unsafe { turn off the borrow checker }.
 		let peers = Arc::new(create_network(2, unsafe { &*(&*cfgs as *const _) as &'static _ }));
 
-		let start_time = std::time::Instant::now();
+		let start_time = lightning_common::Instant::now();
 		macro_rules! spawn_thread { ($id: expr) => { {
 			let peers = Arc::clone(&peers);
 			let cfgs = Arc::clone(&cfgs);
@@ -3445,7 +3445,7 @@ mod tests {
 	#[test]
 	#[cfg(feature = "std")]
 	fn test_process_events_multithreaded() {
-		use std::time::{Duration, Instant};
+		use lightning_common::{Duration, Instant};
 		// `process_events` shouldn't block on another thread processing events and instead should
 		// simply signal the currently processing thread to go around the loop again.
 		// Here we test that this happens by spawning a few threads and checking that we see one go

@@ -1,0 +1,12 @@
+[package]
+name = "lightning-common"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+web-time = "1.1"
+
+[lints]
+workspace = true

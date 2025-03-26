@@ -26,9 +26,11 @@ use crate::routing::router::{BlindedTail, InFlightHtlcs, Path, PaymentParameters
 use crate::sign::{EntropySource, NodeSigner, Recipient};
 use crate::util::errors::APIError;
 use crate::util::logger::Logger;
-#[cfg(feature = "std")]
-use crate::util::time::Instant;
 use crate::util::ser::ReadableArgs;
+#[cfg(test)]
+use crate::util::time::Instant;
+#[cfg(not(test))]
+use lightning_common::Instant;
 
 use core::fmt::{self, Display, Formatter};
 use core::ops::Deref;
@@ -328,7 +330,7 @@ impl Retry {
 #[cfg(feature = "std")]
 pub(super) fn has_expired(route_params: &RouteParameters) -> bool {
 	if let Some(expiry_time) = route_params.payment_params.expiry_time {
-		if let Ok(elapsed) = std::time::SystemTime::UNIX_EPOCH.elapsed() {
+		if let Ok(elapsed) = lightning_common::SystemTime::UNIX_EPOCH.elapsed() {
 			return elapsed > core::time::Duration::from_secs(expiry_time)
 		}
 	}
@@ -2001,7 +2003,8 @@ mod tests {
 		let secp_ctx = Secp256k1::new();
 		let keys_manager = test_utils::TestKeysInterface::new(&[0; 32], Network::Testnet);
 
-		let past_expiry_time = std::time::SystemTime::UNIX_EPOCH.elapsed().unwrap().as_secs() - 2;
+		let past_expiry_time =
+			lightning_common::SystemTime::UNIX_EPOCH.elapsed().unwrap().as_secs() - 2;
 		let payment_params = PaymentParameters::from_node_id(
 				PublicKey::from_secret_key(&secp_ctx, &SecretKey::from_slice(&[42; 32]).unwrap()),
 				0

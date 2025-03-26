@@ -120,7 +120,7 @@ use {
 use crate::prelude::*;
 
 #[cfg(feature = "std")]
-use std::time::SystemTime;
+use lightning_common::SystemTime;
 
 pub(super) const IV_BYTES_WITH_METADATA: &[u8; IV_LEN] = b"LDK Refund ~~~~~";
 pub(super) const IV_BYTES_WITHOUT_METADATA: &[u8; IV_LEN] = b"LDK Refund v2~~~";
@@ -535,8 +535,8 @@ macro_rules! respond_with_explicit_signing_pubkey_methods { ($self: ident, $buil
 		&$self, payment_paths: Vec<BlindedPaymentPath>, payment_hash: PaymentHash,
 		signing_pubkey: PublicKey,
 	) -> Result<$builder, Bolt12SemanticError> {
-		let created_at = std::time::SystemTime::now()
-			.duration_since(std::time::SystemTime::UNIX_EPOCH)
+		let created_at = lightning_common::SystemTime::now()
+			.duration_since(lightning_common::SystemTime::UNIX_EPOCH)
 			.expect("SystemTime::now() should come after SystemTime::UNIX_EPOCH");
 
 		$self.respond_with_no_std(payment_paths, payment_hash, signing_pubkey, created_at)
@@ -593,8 +593,8 @@ macro_rules! respond_with_derived_signing_pubkey_methods { ($self: ident, $build
 	where
 		ES::Target: EntropySource,
 	{
-		let created_at = std::time::SystemTime::now()
-			.duration_since(std::time::SystemTime::UNIX_EPOCH)
+		let created_at = lightning_common::SystemTime::now()
+			.duration_since(lightning_common::SystemTime::UNIX_EPOCH)
 			.expect("SystemTime::now() should come after SystemTime::UNIX_EPOCH");
 
 		$self.respond_using_derived_keys_no_std(
