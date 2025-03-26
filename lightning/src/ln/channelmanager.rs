@@ -6130,8 +6130,8 @@ where
 			}
 
 			#[cfg(feature = "std")]
-			let duration_since_epoch = std::time::SystemTime::now()
-				.duration_since(std::time::SystemTime::UNIX_EPOCH)
+			let duration_since_epoch = lightning_common::SystemTime::now()
+				.duration_since(lightning_common::SystemTime::UNIX_EPOCH)
 				.expect("SystemTime::now() should come after SystemTime::UNIX_EPOCH");
 			#[cfg(not(feature = "std"))]
 			let duration_since_epoch = Duration::from_secs(
@@ -9350,8 +9350,8 @@ where
 			self.highest_seen_timestamp.load(Ordering::Acquire) as u64
 		);
 		#[cfg(feature = "std")]
-		let now = std::time::SystemTime::now()
-			.duration_since(std::time::SystemTime::UNIX_EPOCH)
+		let now = lightning_common::SystemTime::now()
+			.duration_since(lightning_common::SystemTime::UNIX_EPOCH)
 			.expect("SystemTime::now() should come after SystemTime::UNIX_EPOCH");
 
 		now

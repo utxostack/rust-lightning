@@ -346,7 +346,7 @@ where
 	R::Target: Router,
 	L::Target: Logger,
 {
-	use std::time::SystemTime;
+	use lightning_common::SystemTime;
 	let duration = SystemTime::now().duration_since(SystemTime::UNIX_EPOCH)
 		.expect("for the foreseeable future this shouldn't happen");
 	create_invoice_from_channelmanager_and_duration_since_epoch(
@@ -387,7 +387,7 @@ where
 	R::Target: Router,
 	L::Target: Logger,
 {
-	use std::time::SystemTime;
+	use lightning_common::SystemTime;
 
 	let duration = SystemTime::now()
 		.duration_since(SystemTime::UNIX_EPOCH)

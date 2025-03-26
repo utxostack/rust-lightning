@@ -31,7 +31,7 @@ extern crate core;
 extern crate serde;
 
 #[cfg(feature = "std")]
-use std::time::SystemTime;
+use lightning_common::SystemTime;
 
 use bech32::{FromBase32, u5};
 use bitcoin::{Address, Network, PubkeyHash, ScriptHash, WitnessProgram, WitnessVersion};
