@@ -100,7 +100,7 @@ where
 
 		log_trace!(self.logger, "Starting transaction sync.");
 		#[cfg(feature = "time")]
-		let start_time = std::time::Instant::now();
+		let start_time = lightning_common::Instant::now();
 		let mut num_confirmed = 0;
 		let mut num_unconfirmed = 0;
 

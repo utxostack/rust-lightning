@@ -28,7 +28,7 @@ extern crate lightning_types;
 extern crate serde;
 
 #[cfg(feature = "std")]
-use std::time::SystemTime;
+use lightning_common::SystemTime;
 
 use bech32::primitives::decode::CheckedHrpstringError;
 use bech32::{Checksum, Fe32};

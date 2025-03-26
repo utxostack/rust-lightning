@@ -20,6 +20,7 @@ std = []
 [dependencies]
 bech32 = { version = "0.11.0", default-features = false }
 lightning-types = { version = "0.2.0", path = "../lightning-types", default-features = false }
+lightning-common = { path = "../lightning-common" }
 serde = { version = "1.0.118", optional = true }
 bitcoin = { version = "0.32.2", default-features = false, features = ["secp-recovery"] }
 

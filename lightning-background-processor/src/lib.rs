@@ -48,11 +48,11 @@ use core::time::Duration;
 #[cfg(feature = "std")]
 use core::sync::atomic::{AtomicBool, Ordering};
 #[cfg(feature = "std")]
+use lightning_common::Instant;
+#[cfg(feature = "std")]
 use std::sync::Arc;
 #[cfg(feature = "std")]
 use std::thread::{self, JoinHandle};
-#[cfg(feature = "std")]
-use std::time::Instant;
 
 #[cfg(not(feature = "std"))]
 use alloc::boxed::Box;
@@ -948,7 +948,7 @@ impl BackgroundProcessor {
 					handle_network_graph_update(network_graph, &event)
 				}
 				if let Some(ref scorer) = scorer {
-					use std::time::SystemTime;
+					use lightning_common::SystemTime;
 					let duration_since_epoch = SystemTime::now()
 						.duration_since(SystemTime::UNIX_EPOCH)
 						.expect("Time should be sometime after 1970");
@@ -995,7 +995,7 @@ impl BackgroundProcessor {
 				|time: &Instant, dur| time.elapsed().as_secs() > dur,
 				false,
 				|| {
-					use std::time::SystemTime;
+					use lightning_common::SystemTime;
 					Some(
 						SystemTime::now()
 							.duration_since(SystemTime::UNIX_EPOCH)

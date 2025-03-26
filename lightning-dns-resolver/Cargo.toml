@@ -10,6 +10,7 @@ edition = "2021"
 [dependencies]
 lightning = { version = "0.1.0", path = "../lightning", default-features = false }
 lightning-types = { version = "0.2.0", path = "../lightning-types", default-features = false }
+lightning-common = { path = "../lightning-common" }
 dnssec-prover = { version = "0.6", default-features = false, features = [ "std", "tokio" ] }
 tokio = { version = "1.0", default-features = false, features = ["rt"] }
 

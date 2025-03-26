@@ -20,10 +20,10 @@ use lightning::{log_debug, log_error, log_trace};
 use bitcoin::block::Header;
 use bitcoin::{BlockHash, Script, Transaction, Txid};
 
+use lightning_common::Instant;
 use std::collections::HashSet;
 use std::ops::Deref;
 use std::sync::Mutex;
-use std::time::Instant;
 
 /// Synchronizes LDK with a given Electrum server.
 ///

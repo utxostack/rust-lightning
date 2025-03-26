@@ -10,7 +10,7 @@
 #[cfg(test)]
 pub use test::Instant;
 #[cfg(not(test))]
-pub use std::time::Instant;
+pub use lightning_common::Instant;
 
 #[cfg(test)]
 mod test {

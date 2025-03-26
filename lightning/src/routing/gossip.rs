@@ -55,7 +55,7 @@ use core::{cmp, fmt};
 pub use lightning_types::routing::RoutingFees;
 
 #[cfg(feature = "std")]
-use std::time::{SystemTime, UNIX_EPOCH};
+use lightning_common::{SystemTime, UNIX_EPOCH};
 
 /// We remove stale channel directional info two weeks after the last update, per BOLT 7's
 /// suggestion.
@@ -3033,7 +3033,7 @@ pub(crate) mod tests {
 
 		#[cfg(feature = "std")]
 		{
-			use std::time::{SystemTime, UNIX_EPOCH};
+			use lightning_common::{SystemTime, UNIX_EPOCH};
 
 			let tracking_time = SystemTime::now()
 				.duration_since(UNIX_EPOCH)
@@ -3485,7 +3485,7 @@ pub(crate) mod tests {
 
 		#[cfg(feature = "std")]
 		{
-			use std::time::{SystemTime, UNIX_EPOCH};
+			use lightning_common::{SystemTime, UNIX_EPOCH};
 
 			let tracking_time = SystemTime::now()
 				.duration_since(UNIX_EPOCH)
