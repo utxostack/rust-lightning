@@ -1,6 +1,11 @@
 Rust-Lightning
 ==============
 
+> ​**WASM Adaptation Notice**  
+> This fork includes WebAssembly-specific changes.  
+> See [adaptations guide](./WASM-ADAPTATIONS.md) for details.  
+> ──────────────────────────────────
+
 [![Crate](https://img.shields.io/crates/v/lightning.svg?logo=rust)](https://crates.io/crates/lightning)
 [![Documentation](https://img.shields.io/static/v1?logo=read-the-docs&label=docs.rs&message=lightning&color=informational)](https://docs.rs/lightning/)
 [![Safety Dance](https://img.shields.io/badge/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
